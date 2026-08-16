@@ -31,14 +31,14 @@ The workflow:
     ├── investment-brief.md
     └── source-note.md
 ~~~
-SKILL.md	核心操作手册。告诉 Agent 何时使用这个 Skill、抓取规则、去重方法、处理状态和短报要求;
-README.md	给人阅读的说明。介绍 V1 能做什么、如何安装、目录结构及安全边界;
-agents/	Codex 界面元数据，例如 Skill 显示名称、简短描述和默认调用提示。它不包含抓取逻辑;
-config/	可调整的运行配置。包括博主观察名单、时区、运行时间、短报日期、字数上限和重试设置;
-references/	补充架构资料。解释 ingestion 与 analysis 的分层、Obsidian 结构、安全边界和状态含义。Agent 需要时才读取;
-schemas/	数据格式验证规则。检查 ledger 是否具有正确字段和数据类型，避免账本损坏;
-scripts/	可重复执行的工具。目前的初始化脚本负责在 Obsidian 中建立目录，并复制初始配置和空账本;
-templates/	新建文件时使用的空白模板，包括 ledger、单条帖子笔记和投资短报格式;
+- SKILL.md	核心操作手册。告诉 Agent 何时使用这个 Skill、抓取规则、去重方法、处理状态和短报要求;
+- README.md	给人阅读的说明。介绍 V1 能做什么、如何安装、目录结构及安全边界;
+- agents/	Codex 界面元数据，例如 Skill 显示名称、简短描述和默认调用提示。它不包含抓取逻辑;
+- config/	可调整的运行配置。包括博主观察名单、时区、运行时间、短报日期、字数上限和重试设置;
+- references/	补充架构资料。解释 ingestion 与 analysis 的分层、Obsidian 结构、安全边界和状态含义。Agent 需要时才读取;
+- schemas/	数据格式验证规则。检查 ledger 是否具有正确字段和数据类型，避免账本损坏;
+- scripts/	可重复执行的工具。目前的初始化脚本负责在 Obsidian 中建立目录，并复制初始配置和空账本;
+- templates/	新建文件时使用的空白模板，包括 ledger、单条帖子笔记和投资短报格式;
 
 ## Quick start
 
