@@ -1,7 +1,6 @@
-# Agent Workflow Sandbox
-Reusable, auditable agent workflows. This repository currently contains **Financial Influencer Ingestion V1**, an X-only workflow that preserves source material in Obsidian and produces concise Chinese investment briefs.
+# Financial Influencer Ingestion V1
 
-## Financial Influencer Ingestion V1
+An X-only, reusable agent workflow that preserves verified financial-influencer source material in Obsidian and produces concise Chinese investment briefs.
 
 The workflow:
 
@@ -17,34 +16,34 @@ The workflow:
 ## Repository layout
 
 ~~~text
-skills/
-└── financial-influencer-ingestion/
-    ├── SKILL.md
-    ├── agents/openai.yaml
-    ├── config/
-    │   ├── automation.yaml
-    │   └── influencer-watchlist.yaml
-    ├── references/architecture.md
-    ├── schemas/financial-influencer-ledger.schema.json
-    ├── scripts/bootstrap-vault.sh
-    └── templates/
-        ├── financial-influencer-ledger.json
-        ├── investment-brief.md
-        └── source-note.md
+.
+├── README.md
+├── SKILL.md
+├── agents/openai.yaml
+├── config/
+│   ├── automation.yaml
+│   └── influencer-watchlist.yaml
+├── references/architecture.md
+├── schemas/financial-influencer-ledger.schema.json
+├── scripts/bootstrap-vault.sh
+└── templates/
+    ├── financial-influencer-ledger.json
+    ├── investment-brief.md
+    └── source-note.md
 ~~~
 
 ## Quick start
 
-1. Review skills/financial-influencer-ingestion/config/influencer-watchlist.yaml and enable only verified X profiles.
+1. Review config/influencer-watchlist.yaml and enable only verified X profiles.
 2. Bootstrap an Obsidian vault:
 
    ~~~bash
-   ./skills/financial-influencer-ingestion/scripts/bootstrap-vault.sh "/path/to/your/Obsidian/vault"
+   ./scripts/bootstrap-vault.sh "/path/to/your/Obsidian/vault"
    ~~~
 
 3. Set FINANCIAL_INFLUENCER_VAULT to the vault root for scheduled runs.
-4. Install or invoke the skill from skills/financial-influencer-ingestion/SKILL.md.
-5. Configure your scheduler from skills/financial-influencer-ingestion/config/automation.yaml.
+4. Install or invoke the skill from SKILL.md.
+5. Configure your scheduler from config/automation.yaml.
 6. Use an already-authenticated browser session when X requires authentication. The workflow never logs in or performs account actions.
 
 ## Security and privacy
