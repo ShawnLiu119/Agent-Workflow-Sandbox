@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "timezone": "America/Chicago",
+  "created_at": null,
+  "updated_at": null,
+  "initial_backfill": {
+    "days": 7,
+    "status": "not_started",
+    "started_at": null,
+    "completed_at": null,
+    "last_attempt_at": null,
+    "last_blocker": null
+  },
+  "investment_brief": {
+    "schedule_days": [
+      "monday",
+      "wednesday"
+    ],
+    "schedule_time": "03:00",
+    "window_policy": "since_previous_brief_cutoff",
+    "last_completed_cutoff_at": null,
+    "last_archive_path": null
+  },
+  "active_run": null,
+  "items": {},
+  "run_history": []
+}

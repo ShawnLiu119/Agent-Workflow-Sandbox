@@ -1,0 +1,59 @@
+schema_version: 1
+timezone: America/Chicago
+initial_backfill_days: 7
+
+ingestion_schedule:
+  cadence: daily
+  time: "03:00"
+
+investment_brief:
+  cadence: twice_weekly
+  days:
+    - monday
+    - wednesday
+  time: "03:00"
+  window_policy: since_previous_brief_cutoff
+  initial_window_days: 7
+  max_chinese_characters: 1000
+  language: zh-CN
+  format: bullet_points
+
+platforms:
+  x:
+    - profile_url: https://x.com/aleabitoreddit
+      handle: aleabitoreddit
+      enabled: true
+    - profile_url: https://x.com/dylan522p
+      handle: dylan522p
+      enabled: true
+    - profile_url: https://x.com/DavidKWilliams
+      handle: DavidKWilliams
+      enabled: true
+    - profile_url: https://x.com/allstarcharts
+      handle: allstarcharts
+      enabled: false
+      review_required: "Profile showed zero posts during V1 trial; verify intended creator URL."
+    - profile_url: https://x.com/BrianFeroldi
+      handle: BrianFeroldi
+      enabled: true
+    - profile_url: https://x.com/michaeljburry
+      handle: michaeljburry
+      enabled: true
+    - profile_url: https://x.com/stoolpresidente
+      handle: stoolpresidente
+      enabled: true
+    - profile_url: https://x.com/CathieDWood
+      handle: CathieDWood
+      enabled: true
+    - profile_url: https://x.com/icancassel
+      handle: icancassel
+      enabled: false
+      review_required: "Profile was unavailable during V1 trial; replace with a verified creator URL."
+    - profile_url: https://x.com/adamkhootrader
+      handle: adamkhootrader
+      enabled: true
+    - profile_url: https://x.com/PeterLBrandt
+      handle: PeterLBrandt
+      enabled: true
+  youtube: []
+  xiaohongshu: []
