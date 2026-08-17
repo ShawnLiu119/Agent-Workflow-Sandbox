@@ -1,0 +1,4 @@
+interface:
+  display_name: "Financial Influencer Ingestion"
+  short_description: "Ingest watched X creators into an Obsidian brief"
+  default_prompt: "Use $financial-influencer-ingestion to ingest new watched X content and generate the Chinese investment brief when due."

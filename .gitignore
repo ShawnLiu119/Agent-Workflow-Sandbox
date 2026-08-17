@@ -1,0 +1,28 @@
+# Credentials and local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*token*
+*cookie*
+*session*
+browser-profile/
+
+# Runtime data and temporary media
+Financial Influencers/Sources/
+Financial Influencers/Digests/
+Financial Influencers/System/financial-influencer-ledger.json
+tmp/
+temp/
+*.mp3
+*.mp4
+*.m4a
+*.wav
+
+# Local/editor files
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.pyc

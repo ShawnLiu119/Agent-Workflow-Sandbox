@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/financial-influencer-ledger.schema.json",
+  "title": "Financial Influencer Ledger",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "timezone",
+    "initial_backfill",
+    "investment_brief",
+    "active_run",
+    "items",
+    "run_history"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "timezone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": ["string", "null"]
+    },
+    "updated_at": {
+      "type": ["string", "null"]
+    },
+    "initial_backfill": {
+      "type": "object",
+      "required": ["days", "status"],
+      "properties": {
+        "days": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "investment_brief": {
+      "type": "object",
+      "required": ["schedule_days", "schedule_time", "window_policy"],
+      "additionalProperties": true
+    },
+    "active_run": {
+      "type": ["object", "null"]
+    },
+    "items": {
+      "type": "object",
+      "patternProperties": {
+        "^x:[0-9]+$": {
+          "$ref": "#/$defs/item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "run_history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": [
+        "platform",
+        "native_content_id",
+        "creator_handle",
+        "canonical_url",
+        "state",
+        "attempt_count",
+        "attempt_history"
+      ],
+      "properties": {
+        "platform": {
+          "const": "x"
+        },
+        "native_content_id": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+        "component_native_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "creator_id": {
+          "type": ["string", "null"]
+        },
+        "creator_handle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_url": {
+          "type": "string",
+          "pattern": "^https://(www\\\\.)?x\\\\.com/"
+        },
+        "content_type": {
+          "enum": ["post", "thread", "quote_post"]
+        },
+        "published_at": {
+          "type": ["string", "null"]
+        },
+        "state": {
+          "enum": ["ingested", "skipped", "pending_review", "failed"]
+        },
+        "state_reason": {
+          "type": "string"
+        },
+        "attempt_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "attempt_history": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["attempted_at", "result_state"],
+            "properties": {
+              "attempted_at": {
+                "type": "string"
+              },
+              "result_state": {
+                "enum": ["ingested", "skipped", "pending_review", "failed"]
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

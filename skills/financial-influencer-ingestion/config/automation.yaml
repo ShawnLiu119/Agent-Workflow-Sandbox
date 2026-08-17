@@ -1,0 +1,36 @@
+schema_version: 1
+name: financial-influencer-ingestion-v1
+timezone: America/Chicago
+runtime:
+  vault_root_env: FINANCIAL_INFLUENCER_VAULT
+  requires_authenticated_browser_session: true
+  store_credentials: false
+schedule:
+  ingestion:
+    recurrence: daily
+    local_time: "03:00"
+  investment_brief:
+    recurrence: weekly
+    weekdays:
+      - monday
+      - wednesday
+    after_ingestion: true
+
+job:
+  skill: financial-influencer-ingestion
+  platform_scope:
+    - x
+  watchlist_path: Financial Influencers/System/influencer-watchlist.yaml
+  ledger_path: Financial Influencers/System/financial-influencer-ledger.json
+  daily_digest_directory: Financial Influencers/Digests/Daily
+  brief_archive_directory: Financial Influencers/Digests/Weekly
+  latest_brief_path: Financial Influencers/Digests/投资短报-最新.md
+  read_only_platform_access: true
+  allow_login_actions: false
+  brief_max_chinese_characters: 1000
+
+retry:
+  states:
+    - pending_review
+    - failed
+  stale_run_after_hours: 6
